@@ -1,0 +1,34 @@
+version: '3'
+networks:
+ dem:
+services:
+ postgres:
+  image: postgres:latest
+  restart: always
+  environment:
+   POSTGRES_DB: oltp_db
+   POSTGRES_USER: postgres
+   POSTGRES_PASSWORD: postgres
+  ports:
+   - "5432:5432"
+  volumes:
+   - ./src/db/__init__.py:/dokcer-entrypoint-initdb.b/init.sql
+  networks:
+   - dem
+ pgadmin:
+   image: dpage/pgadmin4:latest
+   restart: always
+   environment:
+     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+     PGADMIN_DEFAULT_PASSWORD: pgadmin
+     PGADMIN_LISTENPORT: 80
+   ports:
+     - "5000:80"
+   depends_on:
+     - postgres
+   networks:
+    - dem
+
+
+
+
