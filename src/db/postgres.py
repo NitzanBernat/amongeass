@@ -62,18 +62,18 @@ def get_db_by_id(db_id: str):
     session.commit()
     return attributes
 
+
 def get_db_by_name(db_name: str):
     Session = sessionmaker(bind=engine)
     session = Session()
     wanted_rows = session.query(Metadata).filter_by(db_name=db_name).all()
     attributes = {}
     for row in wanted_rows:
-        attributes.update({"id":row.id})
-        attributes.update({"name":row.db_name})
-        attributes.update({"user":row.user})
-        attributes.update({"created_at":row.created_at})
-        attributes.update({"status":row.status})
+        attributes.update({"id": row.id})
+        attributes.update({"name": row.db_name})
+        attributes.update({"user": row.user})
+        attributes.update({"created_at": row.created_at})
+        attributes.update({"status": row.status})
 
-    
     session.commit()
     return attributes
