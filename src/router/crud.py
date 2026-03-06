@@ -1,7 +1,5 @@
-from typing import Annotated
-
-from fastapi import APIRouter, HTTPException, Depends
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi import APIRouter, HTTPException
+from fastapi.security import HTTPBasic
 
 from src.db.mongo import get_collection, get_db_collection_names, insert, update_collection, delete_collection, \
     delete_db, delete_one

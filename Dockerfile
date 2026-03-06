@@ -4,7 +4,6 @@ LABEL authors="Magshimim_AI"
 COPY requirments.txt .
 
 
-#install dependencies
 RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirments.txt
