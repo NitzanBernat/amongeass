@@ -5,7 +5,7 @@ import enum
 import sqlalchemy
 from uuid import uuid4, UUID
 from sqlalchemy import  Enum, DateTime
-from sqlalchemy.orm import DeclarativeBase, declarative_base, sessionmaker, mapped_column, Mapped
+from sqlalchemy.orm import DeclarativeBase, sessionmaker, mapped_column, Mapped
 
 engine = sqlalchemy.create_engine("postgresql+psycopg2://postgres:postgres@localhost:5432/oltp_db")
 metadata = sqlalchemy.MetaData()
